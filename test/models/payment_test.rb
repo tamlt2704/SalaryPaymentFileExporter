@@ -1,6 +1,17 @@
 require "test_helper"
 
+
 class PaymentTest < ActiveSupport::TestCase
+  include ActiveSupport::Testing::TimeHelpers
+
+  setup do
+    travel_to Date.new(2025, 8, 16)
+  end
+
+  teardown do
+    travel_back
+  end
+
   test "the truth" do
     first_company = Company.find_by(name: "abc_101")
     payments_company_one = Payment.where(company_id: first_company.id)
