@@ -9,3 +9,17 @@ rails new project_name --api
 ```bash
 rails server -b 0.0.0.0
 ```
+
+# 2. company model
+## 2.1 Create model
+```bash
+rails generate model Company name:string
+./bin/rails db:migrate
+
+#db is stored in storage/development.sqlite3
+```
+
+## 2.2 run test
+```bash
+./bin/rails test
+```
