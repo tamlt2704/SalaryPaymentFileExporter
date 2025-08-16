@@ -52,3 +52,18 @@ curl -X POST http://localhost:3000/payments \
 ./bin/rails --tasks
 rake payments:export
 ```
+
+# 6. 
+```bash
+
+#init
+bundle exec wheneverize .
+whenever --update-crontab
+
+#verify the crontab
+crontab -l
+
+# remove crontab
+crontab -r
+
+```
