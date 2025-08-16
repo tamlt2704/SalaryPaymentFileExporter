@@ -22,7 +22,7 @@ class PaymentTest < ActiveSupport::TestCase
 
     all_payments = Payment.all
     all_payments.each do |payment|
-      puts payment.inspect
+      # puts payment.inspect
       unless payment.valid?
         puts "Errors for payment: #{payment.errors.full_messages.join(', ')}"
       end
