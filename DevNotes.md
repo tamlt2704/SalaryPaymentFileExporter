@@ -67,3 +67,8 @@ crontab -l
 crontab -r
 
 ```
+
+# 7. docker compose up
+```bash
+docker-compose up
+```
