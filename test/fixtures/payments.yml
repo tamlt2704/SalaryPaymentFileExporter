@@ -1,0 +1,152 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: one
+  employee_id: emp001
+  bank_bsb: 482193
+  bank_account: 384920
+  amount_cents: 1000
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+two:
+  company: one
+  employee_id: emp002
+  bank_bsb: 391027
+  bank_account: 9283741
+  amount_cents: 1
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+three:
+  company: one
+  employee_id: emp003
+  bank_bsb: 573820
+  bank_account: 49281736
+  amount_cents: 2500
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+four:
+  company: one
+  employee_id: emp004
+  bank_bsb: 260984
+  bank_account: 837492
+  amount_cents: 3200
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+five:
+  company: one
+  employee_id: emp005
+  bank_bsb: 184205
+  bank_account: 29483756
+  amount_cents: 1800
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+six:
+  company: one
+  employee_id: emp006
+  bank_bsb: 905173
+  bank_account: 3849201
+  amount_cents: 2100
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+seven:
+  company: one
+  employee_id: emp007
+  bank_bsb: 672014
+  bank_account: 928374
+  amount_cents: 4000
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+eight:
+  company: one
+  employee_id: emp008
+  bank_bsb: 318502
+  bank_account: 49281736
+  amount_cents: 2750
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+nine:
+  company: one
+  employee_id: emp009
+  bank_bsb: 740196
+  bank_account: 8374921
+  amount_cents: 1500
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+ten:
+  company: one
+  employee_id: emp010
+  bank_bsb: 529384
+  bank_account: 29483756
+  amount_cents: 5000
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+
+eleven:
+  company: two
+  employee_id: emp011
+  bank_bsb: 608215
+  bank_account: 384920
+  amount_cents: 1200
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+twelve:
+  company: two
+  employee_id: emp012
+  bank_bsb: 492017
+  bank_account: 9283741
+  amount_cents: 2300
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+thirteen:
+  company: two
+  employee_id: emp013
+  bank_bsb: "173820"
+  bank_account: "492817364"
+  amount_cents: 3400
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+fourteen:
+  company: two
+  employee_id: emp014
+  bank_bsb: 384205
+  bank_account: 837492
+  amount_cents: 4500
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
+
+fifteen:
+  company: two
+  employee_id: emp015
+  bank_bsb: 215984
+  bank_account: 29483756
+  amount_cents: 5600
+  currency: AUD
+  pay_date: 2025-08-16
+  status: 0
