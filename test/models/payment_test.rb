@@ -26,6 +26,7 @@ class PaymentTest < ActiveSupport::TestCase
         puts "Errors for payment: #{payment.errors.full_messages.join(', ')}"
       end
       assert payment.valid?, "Invalid payment: #{payment.inspect}"
+      assert payment.pending?, "Default status should be pending: #{payment.inspect}"
     end
 
     assert_equal 10, payments_company_one.count
