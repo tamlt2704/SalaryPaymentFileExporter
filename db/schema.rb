@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_16_230525) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_16_232417) do
   create_table "audits", force: :cascade do |t|
     t.string "filepath"
     t.datetime "exported_at"
@@ -22,6 +22,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_16_230525) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "employee_id"
+    t.string "name"
+    t.integer "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_employees_on_company_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -38,5 +47,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_16_230525) do
     t.index ["company_id"], name: "index_payments_on_company_id"
   end
 
+  add_foreign_key "employees", "companies"
   add_foreign_key "payments", "companies"
 end
