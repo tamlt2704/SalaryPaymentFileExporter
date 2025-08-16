@@ -45,3 +45,10 @@ curl -X POST http://localhost:3000/payments \
     ]
   }'
 ```
+
+
+# 5. rake tasks 
+```bash
+./bin/rails --tasks
+rake payments:export
+```

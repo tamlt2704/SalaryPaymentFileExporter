@@ -1,0 +1,8 @@
+default: 
+  outbox: outbox
+development:
+  outbox: outbox
+test:
+  outbox: outbox
+production:
+  outbox: outbox
