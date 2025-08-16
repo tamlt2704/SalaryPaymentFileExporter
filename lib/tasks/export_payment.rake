@@ -4,7 +4,10 @@ namespace :payments do
     today = Date.today
     payments = Payment.pending.where("pay_date <= ?", today)
 
-    return puts "No payments to export" if payments.empty?
+    if payments.empty?
+      puts "No payments to export"
+      next
+    end
 
     out_dir = Rails.application.config_for(:export)["outbox"] || "outbox"
     filename = "export_#{Time.now.strftime('%Y%m%d_%H%M%S')}.txt"
