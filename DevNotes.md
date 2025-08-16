@@ -23,3 +23,6 @@ rails generate model Company name:string
 ```bash
 ./bin/rails test
 ```
+
+# 3. Payment model
+rails generate model Payment company:references employee_id:string bank_bsb:string bank_account:string amount_cents:integer currency:string pay_date:date status:integer

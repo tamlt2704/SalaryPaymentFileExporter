@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_15_153337) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_16_074836) do
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer "company_id", null: false
+    t.string "employee_id"
+    t.string "bank_bsb"
+    t.string "bank_account"
+    t.integer "amount_cents"
+    t.string "currency"
+    t.date "pay_date"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_payments_on_company_id"
+  end
+
+  add_foreign_key "payments", "companies"
 end
