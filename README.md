@@ -1,5 +1,25 @@
 # SalaryPaymentFileExporter
 
+
+## Description
+
+**SalaryPaymentFileExporter** is a backend service for a payroll company. At 5:00 PM daily (configurable in ```config/export.yml``` or can be simulated via manual command ```bin/rails payments:export```) the system will:
+
+- Select all pending payments where pay_date <= today
+- Generate a .txt file with one line per payment, in the following format:
+```
+COMPANY_ID,EMPLOYEE_ID,BSB,ACCOUNT,AMOUNT_CENTS,CURRENCY,PAY_DATE
+```
+
+Example Output: 
+```
+abc123,emp001,062000,12345678,250000,AUD,2025-07-09 
+abc123,emp002,082003,98765432,300000,AUD,2025-07-09 
+```
+After export: 
+- Mark all included payments as exported 
+- Save a reference to the exported file in the DB (Audit table or http://localhost:3000/audits)
+
 ## Requirements
 
 - Ruby 3.x
