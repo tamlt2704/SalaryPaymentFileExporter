@@ -29,26 +29,26 @@ docker-compose up
 
 ### 2. Example API Usage (with curl)
 
-### Add a Company
+### 2.1 Add a Company
 ```bash
 curl -X POST http://localhost:3000/companies \
   -H "Content-Type: application/json" \
   -d '{"company": {"name": "abc_123"}}'
 ```
 
-### get list of companies
+### 2.2 Get list of companies
 ```bash
 curl http://localhost:3000/companies   
 ```
 
-### Add an Employee
+### 2.3 Add an Employee
 ```bash
 curl -X POST http://localhost:3000/employees \
   -H "Content-Type: application/json" \
   -d '{"employee": {"employee_id": "emp001", "name": "John Doe", "company_id": 1}}'
 ```
 
-### Add Payments (batch)
+### 2.4 Add Payments (batch)
 ```bash
 curl -X POST http://localhost:3000/payments \
   -H "Content-Type: application/json" \
@@ -65,6 +65,16 @@ curl -X POST http://localhost:3000/payments \
       }
     ]
   }'
+```
+
+### 2.5 See current payments
+```bash
+curl http://localhost:3000/payments
+```
+
+### 2.6 inside docker container run following command to export payments
+```bash
+bin/rails payments:export
 ```
 
 ## Requirements
