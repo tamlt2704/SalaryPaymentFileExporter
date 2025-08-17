@@ -78,3 +78,26 @@ bin/rails companies:init
 
 docker-compose up
 ```
+
+# 8. How to run the application
+```bash
+# checkout project
+git clone  git@github.com:tamlt2704/SalaryPaymentFileExporter.git
+
+# run postgresql
+docker run --name my-postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=salary_payment_development -p 5432:5432 -d postgres:16
+
+# migrate db
+./bin/rails db:migrate
+
+# start server
+./bin/rails s -b 0.0.0.0
+
+# init data
+./bin/rails companies:init
+./bin/rails employees:init
+./bin/rails payments:init
+
+# export data (output folder)
+./bin/rails payments:export
+```
