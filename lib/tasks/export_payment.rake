@@ -13,7 +13,7 @@ namespace :payments do
     FileUtils.mkdir_p(Rails.root.join(out_dir)) unless Dir.exist?(Rails.root.join(out_dir))
     filename = "export_#{Time.now.strftime('%Y%m%d_%H%M%S')}.txt"
     filepath = Rails.root.join(out_dir, filename)
-
+    Rails.logger.info "Exporting #{payments.count} payments to #{filepath}"
     File.open(filepath, "w") do |file|
       payments.each do |p|
         file.puts [ p.company_id, p.employee_id, p.bank_bsb, p.bank_account,
