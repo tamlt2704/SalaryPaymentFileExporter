@@ -10,6 +10,7 @@ namespace :payments do
     end
 
     out_dir = Rails.application.config_for(:export)["outbox"] || "outbox"
+    FileUtils.mkdir_p(Rails.root.join(out_dir)) unless Dir.exist?(Rails.root.join(out_dir))
     filename = "export_#{Time.now.strftime('%Y%m%d_%H%M%S')}.txt"
     filepath = Rails.root.join(out_dir, filename)
 

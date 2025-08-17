@@ -1,6 +1,7 @@
 namespace :companies do
   desc "Initialize default companies"
   task init: :environment do
+    Company.where(name: [ "Company A", "Company B", "Company C" ]).destroy_all
     companies = [
       { name: "Company A" },
       { name: "Company B" },
