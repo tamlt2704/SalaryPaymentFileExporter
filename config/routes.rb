@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   post "/payments", to: "payments#create"
 
-  get "/companies", to: "companies#index"
+  resources :companies, only: [ :index, :create ]
   resources :employees, only: [ :index, :show, :create ]
+  resources :payments, only: [ :index, :create ]
   get "/audits", to: "audits#index"
 end

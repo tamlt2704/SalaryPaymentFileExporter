@@ -20,6 +20,53 @@ After export:
 - Mark all included payments as exported 
 - Save a reference to the exported file in the DB (Audit table or http://localhost:3000/audits)
 
+## Quick setup with docker
+### 1. Start the application
+```bash
+docker-compose build
+docker-compose up
+```
+
+### 2. Example API Usage (with curl)
+
+### Add a Company
+```bash
+curl -X POST http://localhost:3000/companies \
+  -H "Content-Type: application/json" \
+  -d '{"company": {"name": "abc_123"}}'
+```
+
+### get list of companies
+```bash
+curl http://localhost:3000/companies   
+```
+
+### Add an Employee
+```bash
+curl -X POST http://localhost:3000/employees \
+  -H "Content-Type: application/json" \
+  -d '{"employee": {"employee_id": "emp001", "name": "John Doe", "company_id": 1}}'
+```
+
+### Add Payments (batch)
+```bash
+curl -X POST http://localhost:3000/payments \
+  -H "Content-Type: application/json" \
+  -d '{
+    "company_id": 1,
+    "payments": [
+      {
+        "employee_id": "emp001",
+        "bank_bsb": "062000",
+        "bank_account": "12345678",
+        "amount_cents": 250000,
+        "currency": "AUD",
+        "pay_date": "2025-08-19"
+      }
+    ]
+  }'
+```
+
 ## Requirements
 
 - Ruby 3.x
@@ -103,4 +150,4 @@ bin/rails test
 
 - Default export files are saved in the `outbox` directory.
 - You can configure export settings in `config/export.yml`.
-- For scheduled exports, see the Sidekiq or cron job configuration.
+- For scheduled exports, see crontab -l
