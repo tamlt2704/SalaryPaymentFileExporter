@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 2025_08_16_232417) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
+
   create_table "audits", force: :cascade do |t|
     t.string "filepath"
     t.datetime "exported_at"
@@ -27,14 +30,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_16_232417) do
   create_table "employees", force: :cascade do |t|
     t.string "employee_id"
     t.string "name"
-    t.integer "company_id", null: false
+    t.bigint "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_employees_on_company_id"
   end
 
   create_table "payments", force: :cascade do |t|
-    t.integer "company_id", null: false
+    t.bigint "company_id", null: false
     t.string "employee_id"
     t.string "bank_bsb"
     t.string "bank_account"

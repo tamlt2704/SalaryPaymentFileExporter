@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   get "/companies", to: "companies#index"
   resources :employees, only: [ :index, :show, :create ]
+  get "/audits", to: "audits#index"
 end

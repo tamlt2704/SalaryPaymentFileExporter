@@ -70,5 +70,8 @@ crontab -r
 
 # 7. docker compose up
 ```bash
+
+docker run --name my-postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=salary_payment_development -p 5432:5432 -d postgres:16
+
 docker-compose up
 ```
