@@ -32,7 +32,7 @@ rails generate model Payment company:references employee_id:string bank_bsb:stri
 curl -X POST http://localhost:3000/payments \
   -H "Content-Type: application/json" \
   -d '{
-    "company_id": "abc123",
+    "company_id": "1",
     "payments": [
       {
         "employee_id": "emp001",
