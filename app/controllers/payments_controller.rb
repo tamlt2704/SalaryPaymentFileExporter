@@ -1,4 +1,9 @@
 class PaymentsController < ApplicationController
+  def index
+    payments = Payment.all.order(created_at: :desc)
+    render json: payments
+  end
+
   def create
     company = Company.find_by(id: params[:company_id])
     unless company

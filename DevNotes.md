@@ -32,7 +32,7 @@ rails generate model Payment company:references employee_id:string bank_bsb:stri
 curl -X POST http://localhost:3000/payments \
   -H "Content-Type: application/json" \
   -d '{
-    "company_id": "abc123",
+    "company_id": "1",
     "payments": [
       {
         "employee_id": "emp001",
@@ -66,4 +66,38 @@ crontab -l
 # remove crontab
 crontab -r
 
+```
+
+# 7. docker compose up
+```bash
+
+docker run --name my-postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=salary_payment_development -p 5432:5432 -d postgres:16
+
+# init list of companies
+bin/rails companies:init
+
+docker-compose up
+```
+
+# 8. How to run the application
+```bash
+# checkout project
+git clone  git@github.com:tamlt2704/SalaryPaymentFileExporter.git
+
+# run postgresql
+docker run --name my-postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=salary_payment_development -p 5432:5432 -d postgres:16
+
+# migrate db
+./bin/rails db:migrate
+
+# start server
+./bin/rails s -b 0.0.0.0
+
+# init data
+./bin/rails companies:init
+./bin/rails employees:init
+./bin/rails payments:init
+
+# export data (output folder)
+./bin/rails payments:export
 ```
