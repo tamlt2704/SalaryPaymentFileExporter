@@ -61,7 +61,7 @@ curl -X POST http://localhost:3000/payments \
         "bank_account": "12345678",
         "amount_cents": 250000,
         "currency": "AUD",
-        "pay_date": "2025-08-19"
+        "pay_date": "2025-08-18"
       }
     ]
   }'
