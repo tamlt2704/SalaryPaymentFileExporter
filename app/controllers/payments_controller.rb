@@ -7,7 +7,7 @@ class PaymentsController < ApplicationController
   def create
     company = Company.find_by(id: params[:company_id])
     unless company
-      render json: { error: "Company not found" }, status: :not_found and return
+      render json: { error: "Company not found" }, status: :bad_request and return
     end
 
     payments = params.require(:payments).map do |p|
