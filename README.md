@@ -23,8 +23,8 @@ After export:
 ## Quick setup with docker
 ### 1. Start the application
 ```bash
-docker-compose build
-docker-compose up
+docker-compose build  # VSCODE: run task 'docker-compose build --no-cache'
+docker-compose up     # VSCODE: run task 'docker-compose up'
 ```
 
 ### 2. Example API Usage (with curl)
