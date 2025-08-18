@@ -2,6 +2,22 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "docker-compose build",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["build"],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "docker-compose build --no-cache",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["build", "--no-cache"],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
       "label": "docker-compose up",
       "type": "shell",
       "command": "docker-compose",

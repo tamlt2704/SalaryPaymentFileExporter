@@ -1,13 +1,12 @@
 default: 
   outbox: outbox
-  run_time: "0 17 * * *"
-  #run_time: "* * * * *" # every second
+  run_time: "5 pm"
 development:
   outbox: outbox
-  run_time: "0 17 * * *"
+  run_time: "5 pm"
 test:
   outbox: outbox
-  run_time: "0 17 * * *"
+  run_time: "5 pm"
 production:
   outbox: outbox
-  run_time: "0 17 * * *"
+  run_time: "5 pm"
