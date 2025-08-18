@@ -54,4 +54,36 @@ class ExportPaymentTaskTest < ActiveSupport::TestCase
       Rake::Task["payments:export"].invoke
     end
   end
+
+  test "rolls back all changes if file move (FTP) fails" do
+    travel_to Date.new(2025, 8, 16) do
+      payment = payments(:one)
+      payment.update!(pay_date: Date.today, status: :pending)
+      payment.reload
+
+      # Ensure only one payment is pending and eligible
+      Payment.where.not(id: payment.id).update_all(status: :exported)
+
+
+      # Patch FileUtils.cp to raise an error to simulate FTP failure
+      class << FileUtils
+        alias_method :orig_cp, :cp
+        def cp(*args)
+          raise StandardError, "Simulated FTP failure"
+        end
+      end
+      begin
+        Rake::Task["payments:export"].invoke
+      ensure
+        class << FileUtils
+          alias_method :cp, :orig_cp
+          remove_method :orig_cp
+        end
+      end
+
+      # Payment status should remain pending, no audit should be created
+      assert_equal "pending", payment.reload.status
+      assert_equal 0, Audit.where("filepath LIKE ?", "%export_%").count
+    end
+  end
 end
